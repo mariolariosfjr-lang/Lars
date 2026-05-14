@@ -1,34 +1,195 @@
-<!-- enter here --> <!-- help me with the code okay -->
+<!-- enter here -->
+<!-- help me with the code okay -->
 <!DOCTYPE html>
 <html>
   <head>
     <title>Lars --- EV Cars</title>
+
     <style>
       body {
-        background-color: red;
+        background: red;
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        color: white;
       }
-      p {
-      font-family: "Segoe UI";
+
+      header {
+        background: #b30000;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       }
+
       h1 {
-        font-family: "Segoe UI";
+        margin: 0;
+        font-size: 42px;
       }
+
+      p {
+        font-size: 18px;
+      }
+
+      .cars {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        padding: 30px;
+      }
+
+      .card {
+        background: rgba(255,255,255,0.12);
+        width: 280px;
+        border-radius: 18px;
+        padding: 18px;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+        transition: 0.2s;
+      }
+
+      .card:hover {
+        transform: scale(1.03);
+      }
+
+      .car-image {
+        width: 100%;
+        height: 150px;
+        border-radius: 14px;
+        background: linear-gradient(135deg,#ff4d4d,#990000);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 70px;
+      }
+
+      h2 {
+        margin-top: 15px;
+      }
+
       button {
         border-radius: 8px;
+        border: none;
+        padding: 12px 18px;
+        font-size: 16px;
+        font-family: "Segoe UI";
+        cursor: pointer;
+        background: white;
+        color: red;
+        font-weight: bold;
+        transition: 0.2s;
+      }
+
+      button:hover {
+        background: #ffd6d6;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 25px;
+        background: #990000;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .cart {
+        background: white;
+        color: red;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-weight: bold;
+      }
+
+      footer {
+        text-align: center;
+        padding: 25px;
+        background: #8a0000;
+        margin-top: 30px;
       }
     </style>
   </head>
+
   <body>
+
+    <div class="topbar">
+      <div class="logo">LARS</div>
+      <div class="cart">
+        Cars Bought:
+        <span id="count">0</span>
+      </div>
+    </div>
+
+    <header>
+      <h1>LARS EV VEHICLES</h1>
+      <p>Buy official Lars electric vehicles only.</p>
+    </header>
+
+    <div class="cars">
+
+      <div class="card">
+        <div class="car-image">🚗</div>
+        <h2>Lars Falcon EV</h2>
+        <p>Fast electric sports vehicle.</p>
+        <p><b>$49,999</b></p>
+        <button onclick="buyCar('Lars Falcon EV')">
+          Buy Vehicle
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="car-image">🚙</div>
+        <h2>Lars Thunder SUV</h2>
+        <p>Large family electric SUV.</p>
+        <p><b>$64,999</b></p>
+        <button onclick="buyCar('Lars Thunder SUV')">
+          Buy Vehicle
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="car-image">🏎️</div>
+        <h2>Lars Speed GT</h2>
+        <p>Ultra performance EV machine.</p>
+        <p><b>$89,999</b></p>
+        <button onclick="buyCar('Lars Speed GT')">
+          Buy Vehicle
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="car-image">🚐</div>
+        <h2>Lars Cargo EV</h2>
+        <p>Electric delivery van.</p>
+        <p><b>$44,999</b></p>
+        <button onclick="buyCar('Lars Cargo EV')">
+          Buy Vehicle
+        </button>
+      </div>
+
+    </div>
+
+    <footer>
+      © 2026 Lars Vehicles — Red Power Electric Cars
+    </footer>
+
     <script>
-      // sculpt car models or etc. in any software.
-      const THREE = require('three');
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(75, window.InnerWidth / window.InnerHeight, 0.1, 1000);
-      const renderer = new THREE.WebGLRenderer({ antialias: true });
-      renderer.setSize(window.innerWidth, window.InnerHeight);
-      renderer.SetPixelRatio(Math.min(window.devicePixelRatio, 2));
-      document.body.appendChild(renderer.domElement);
-      // please finish it.
+      let bought = 0;
+
+      function buyCar(name) {
+        bought++;
+        document.getElementById("count").innerText = bought;
+
+        alert(
+          "You bought the " +
+          name +
+          " from Lars Vehicles!"
+        );
+      }
     </script>
+
   </body>
 </html>
