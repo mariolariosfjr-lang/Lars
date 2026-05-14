@@ -1,195 +1,181 @@
-<!-- enter here -->
-<!-- help me with the code okay -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Lars --- EV Cars</title>
+<head>
+  <title>LARS Vehicles</title>
 
-    <style>
-      body {
-        background: red;
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        color: white;
-      }
+  <style>
+    body {
+      margin: 0;
+      background: red;
+      font-family: "Segoe UI", sans-serif;
+      color: white;
+    }
 
-      header {
-        background: #b30000;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      }
+    header {
+      background: #980000;
+      padding: 30px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
 
-      h1 {
-        margin: 0;
-        font-size: 42px;
-      }
+    h1 {
+      margin: 0;
+      font-size: 50px;
+    }
 
-      p {
-        font-size: 18px;
-      }
+    .garage {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      padding: 20px;
+    }
 
-      .cars {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 25px;
-        padding: 30px;
-      }
+    .car {
+      width: 220px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 14px rgba(0,0,0,0.35);
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+    }
 
-      .card {
-        background: rgba(255,255,255,0.12);
-        width: 280px;
-        border-radius: 18px;
-        padding: 18px;
-        backdrop-filter: blur(4px);
-        box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-        transition: 0.2s;
-      }
+    .car:hover {
+      transform: scale(1.03);
+    }
 
-      .card:hover {
-        transform: scale(1.03);
-      }
+    .car img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
 
-      .car-image {
-        width: 100%;
-        height: 150px;
-        border-radius: 14px;
-        background: linear-gradient(135deg,#ff4d4d,#990000);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 70px;
-      }
+    .content {
+      padding: 14px;
+    }
 
-      h2 {
-        margin-top: 15px;
-      }
+    h2 {
+      margin-top: 0;
+    }
 
-      button {
-        border-radius: 8px;
-        border: none;
-        padding: 12px 18px;
-        font-size: 16px;
-        font-family: "Segoe UI";
-        cursor: pointer;
-        background: white;
-        color: red;
-        font-weight: bold;
-        transition: 0.2s;
-      }
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: white;
+      color: red;
+      font-family: "Segoe UI";
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-      button:hover {
-        background: #ffd6d6;
-      }
+    button:hover {
+      background: #ffd0d0;
+    }
 
-      .topbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 25px;
-        background: #990000;
-      }
+    #counter {
+      margin-top: 10px;
+      font-size: 20px;
+    }
 
-      .logo {
-        font-size: 28px;
-        font-weight: bold;
-      }
+    footer {
+      background: #7a0000;
+      text-align: center;
+      padding: 30px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
 
-      .cart {
-        background: white;
-        color: red;
-        padding: 10px 16px;
-        border-radius: 8px;
-        font-weight: bold;
-      }
+<body>
 
-      footer {
-        text-align: center;
-        padding: 25px;
-        background: #8a0000;
-        margin-top: 30px;
-      }
-    </style>
-  </head>
+<header>
+  <h1>LARS VEHICLES</h1>
+  <p>Official Lars electric vehicle marketplace.</p>
+  <div id="counter">Cars Bought: 0</div>
+</header>
 
-  <body>
+<div class="garage" id="garage"></div>
 
-    <div class="topbar">
-      <div class="logo">LARS</div>
-      <div class="cart">
-        Cars Bought:
-        <span id="count">0</span>
-      </div>
-    </div>
+<footer>
+  © 2026 Lars Vehicles
+</footer>
 
-    <header>
-      <h1>LARS EV VEHICLES</h1>
-      <p>Buy official Lars electric vehicles only.</p>
-    </header>
+<script>
+  let bought = 0;
 
-    <div class="cars">
+  function buyCar(name) {
+    bought++;
 
-      <div class="card">
-        <div class="car-image">🚗</div>
-        <h2>Lars Falcon EV</h2>
-        <p>Fast electric sports vehicle.</p>
-        <p><b>$49,999</b></p>
-        <button onclick="buyCar('Lars Falcon EV')">
-          Buy Vehicle
-        </button>
-      </div>
+    document.getElementById("counter").innerText =
+      "Cars Bought: " + bought;
 
-      <div class="card">
-        <div class="car-image">🚙</div>
-        <h2>Lars Thunder SUV</h2>
-        <p>Large family electric SUV.</p>
-        <p><b>$64,999</b></p>
-        <button onclick="buyCar('Lars Thunder SUV')">
-          Buy Vehicle
-        </button>
-      </div>
+    alert("You bought: " + name);
+  }
 
-      <div class="card">
-        <div class="car-image">🏎️</div>
-        <h2>Lars Speed GT</h2>
-        <p>Ultra performance EV machine.</p>
-        <p><b>$89,999</b></p>
-        <button onclick="buyCar('Lars Speed GT')">
-          Buy Vehicle
-        </button>
-      </div>
+  const garage = document.getElementById("garage");
 
-      <div class="card">
-        <div class="car-image">🚐</div>
-        <h2>Lars Cargo EV</h2>
-        <p>Electric delivery van.</p>
-        <p><b>$44,999</b></p>
-        <button onclick="buyCar('Lars Cargo EV')">
-          Buy Vehicle
-        </button>
-      </div>
+  /*
+    REAL IMG SRC SYSTEM
+    OVER 10,000 HTML ELEMENTS GENERATED
+  */
 
-    </div>
+  const carImages = [
+    "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+    "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7",
+    "https://images.unsplash.com/photo-1553440569-bcc63803a83d",
+    "https://images.unsplash.com/photo-1544636331-e26879cd4d9b",
+    "https://images.unsplash.com/photo-1502877338535-766e1452684a"
+  ];
 
-    <footer>
-      © 2026 Lars Vehicles — Red Power Electric Cars
-    </footer>
+  for (let i = 1; i <= 2000; i++) {
 
-    <script>
-      let bought = 0;
+    const card = document.createElement("div");
+    card.className = "car";
 
-      function buyCar(name) {
-        bought++;
-        document.getElementById("count").innerText = bought;
+    const img = document.createElement("img");
 
-        alert(
-          "You bought the " +
-          name +
-          " from Lars Vehicles!"
-        );
-      }
-    </script>
+    img.src =
+      carImages[i % carImages.length] +
+      "?auto=format&fit=crop&w=600&q=80";
 
-  </body>
+    const content = document.createElement("div");
+    content.className = "content";
+
+    const title = document.createElement("h2");
+    title.innerText = "Lars EV #" + i;
+
+    const desc = document.createElement("p");
+    desc.innerText =
+      "Premium Lars electric vehicle model " + i;
+
+    const price = document.createElement("p");
+    price.innerHTML =
+      "<b>$" + (45000 + i) + "</b>";
+
+    const button = document.createElement("button");
+    button.innerText = "Buy Lars Car";
+
+    button.onclick = function () {
+      buyCar("Lars EV #" + i);
+    };
+
+    content.appendChild(title);
+    content.appendChild(desc);
+    content.appendChild(price);
+    content.appendChild(button);
+
+    card.appendChild(img);
+    card.appendChild(content);
+
+    garage.appendChild(card);
+  }
+</script>
+
+</body>
 </html>
