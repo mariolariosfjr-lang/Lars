@@ -1,1 +1,34 @@
-<!-- enter here -->
+<!-- enter here --> <!-- help me with the code okay -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lars --- EV Cars</title>
+    <style>
+      body {
+        background-color: red;
+      }
+      p {
+      font-family: "Segoe UI";
+      }
+      h1 {
+        font-family: "Segoe UI";
+      }
+      button {
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // sculpt car models or etc. in any software.
+      const THREE = require('three');
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.InnerWidth / window.InnerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.InnerHeight);
+      renderer.SetPixelRatio(Math.min(window.devicePixelRatio, 2));
+      document.body.appendChild(renderer.domElement);
+      // please finish it.
+    </script>
+  </body>
+</html>
