@@ -23,3 +23,4 @@ All assets (images, models, audio if used) must be optimized. Large files should
 Future roadmap consideration: the system should be prepared for integration with AI-driven features, including vehicle recommendation systems, natural language search, and interactive EV comparisons.
 
 Finally, every change pushed to production must be reviewed for performance impact, readability, and compatibility. No experimental feature should be deployed without fallback behavior.
+© 2026 Lars, All rights reserved.
